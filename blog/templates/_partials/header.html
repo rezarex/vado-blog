@@ -1,0 +1,36 @@
+{% load static %}
+<nav class="navbar sticky-top bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'img/logo.jpg' %}" alt="Vado Dev" width="30" height="24">
+      </a>
+
+      
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href={% url 'home' %}>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'portfolio' %}>Portfolio</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'new-blog' %}>New Blog</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        {% else %}
+
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'login' %}>Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'register' %}>register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    
+  </nav>
