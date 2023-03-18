@@ -6,7 +6,14 @@ from django.urls import reverse
 
 def index(request):
     blog = Blog.objects.all()
-    context = {'blog':blog}
+
+
+    #filter querysets
+    active_count = blog.filter(is_active = True).count()
+    inactive_count = blog.filter(is_active = False).count()
+    total_count = blog.count()
+    #context = {'blog':[]} #--simulate no content
+    context = {'blog':blog, 'active_count':active_count, 'inactive_count':inactive_count,'total_count':total_count}
 
     return render(request, 'blogapp/index.html', context)
 
