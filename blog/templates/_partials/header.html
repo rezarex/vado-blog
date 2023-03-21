@@ -25,7 +25,7 @@
 <nav class="navbar sticky-top bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href={% url 'home' %}>
-        <img src="{% static 'img/logo.jpg' %}" alt="Vado Dev" width="30" height="24">
+        <img src="{% static 'img/logo.jpg' %}" alt="Vado Dev" width="60" height="50">
       </a>
 
       
@@ -36,13 +36,20 @@
         <li class="nav-item">
           <a class="nav-link" href={% url 'portfolio' %}>Portfolio</a>
         </li>
+        {% if request.user.is_authenticated %}
         <li class="nav-item">
             <a class="nav-link" href={% url 'new-blog' %}>New Blog</a>
           </li>
-        {% if request.user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
-        </li>
+        
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{request.user.username}}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href={% url 'logout_user' %}>Logout</a></li>
+              
+            </ul>
+          </div>
         {% else %}
 
         <li class="nav-item">

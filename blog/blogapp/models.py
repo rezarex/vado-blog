@@ -6,8 +6,7 @@ class Blog(TrackingModel):
     title = models.CharField(max_length=255)
     body = models.TextField()
     is_active = models.BooleanField(default=False)
-    #create_date = models.DateTimeField(auto_now_add=True)
-    #owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
     def __str__(self):

@@ -1,0 +1,17 @@
+{% extends '_partials/base.html' %}
+
+{% block title %}
+    Edit Blog
+{% endblock %}
+
+{% block content %}
+    
+    <h3>Edit Blog</h3>
+
+    <form class="row gy-2 gx-3 align-items-center" method="POST" action={% url 'blog-edit' blog.pk %}>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+    
+{% endblock %}

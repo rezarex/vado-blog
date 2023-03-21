@@ -1,4 +1,7 @@
 {% extends '_partials/base.html' %}
+{% block title %}
+    Create New Blog
+{% endblock %}
 
 
 {% load static %}
@@ -6,6 +9,7 @@
 {% block content %}
     
     <h3>New Blog</h3>
+    {% include '_partials/messages.html' %}
 
     <form class="row gy-2 gx-3 align-items-center" method="POST" action={% url 'new-blog' %}>
         {% csrf_token %}
