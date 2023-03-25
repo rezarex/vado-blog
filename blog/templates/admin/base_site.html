@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+<div style="display: flex; flex-direction: row; align-items: center;">
+    <img src="{% static 'img/logo.jpg' %}" alt="Vado Dev" width="50px" height="40px">
+<h1 id="site-name" style="padding: 10px;"><a href="{% url 'admin:index' %}">Blog Admin</a></h1>
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+<link href="{% static 'css/admin/admin.css' %}" rel="stylesheet" >
+{% endblock %}
