@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def get_showing_blogs(request, blog):
@@ -18,8 +19,8 @@ def get_showing_blogs(request, blog):
 
 
 def index(request):
-    blog = Blog.objects.all()
-    #blog = Blog.objects.filter(owner = request.user.id)
+    #blog = Blog.objects.all()
+    blog = Blog.objects.filter(owner = request.user)
 
 
     #filter querysets
@@ -36,6 +37,7 @@ def index(request):
 
     return render(request, 'blogapp/index.html', context)
 
+@login_required
 def create_blog(request):
     form = BlogForm()
     context = {'form':form}

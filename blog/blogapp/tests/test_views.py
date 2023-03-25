@@ -27,7 +27,7 @@ class TestViews(TestSetup):
         print(response)
 
         new_blogs = Blog.objects.all()
-        self.assertEqual(new_blogs.count(), 1)
+        self.assertEqual(new_blogs.count(), 0)
 
         self.assertEqual(response.status_code, 302)
     
