@@ -58,7 +58,7 @@ def register(request):
         # if not validate_email(email):
         #     messages.add_message(request, messages.WARNING, "Enter a valid email")
 
-        #     context['has_error'] = True #for thid
+        #     context['has_error'] = True
 
         if not username:
             messages.add_message(request, messages.WARNING, "Enter your username!")
