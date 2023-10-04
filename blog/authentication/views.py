@@ -34,6 +34,7 @@ TODO: implement thread so as to have email sent concurently as user registers to
 #                   )
 #     email.send()
 
+
 @auth_user_should_not_access
 def register(request):
 

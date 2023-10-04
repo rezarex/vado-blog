@@ -19,8 +19,8 @@ def get_showing_blogs(request, blog):
 
 
 def index(request):
-    #blog = Blog.objects.all()
-    blog = Blog.objects.filter(owner = request.user)
+    blog = Blog.objects.all()
+    #blog = Blog.objects.filter(owner = request.user)
 
 
     #filter querysets
