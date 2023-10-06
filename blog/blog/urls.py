@@ -24,7 +24,7 @@ urlpatterns = [
     path("auth/", include('authentication.urls')),
     path("cv/", include('portfolio.urls')),
     
-] + + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 handler404 = "helpers.views.handle_not_found"
