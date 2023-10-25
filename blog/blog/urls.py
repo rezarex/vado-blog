@@ -23,6 +23,8 @@ urlpatterns = [
     path("", include('blogapp.urls')),
     path("auth/", include('authentication.urls')),
     path("cv/", include('portfolio.urls')),
+    path('markdownx/', include('markdownx.urls')),
+    #path('martor/', include('martor.urls')),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

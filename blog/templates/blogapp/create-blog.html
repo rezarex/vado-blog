@@ -6,6 +6,7 @@
 
 {% load static %}
 
+
 {% block content %}
     
     <h3>New Blog</h3>
@@ -13,8 +14,9 @@
 
     <form class="row gy-2 gx-3 align-items-center" method="POST" action={% url 'new-blog' %}>
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form  }}
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
+    {{ form.media }}
     
 {% endblock %}
